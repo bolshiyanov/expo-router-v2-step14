@@ -9,33 +9,51 @@ import {
   StatusBar,
 } from "react-native";
 import Colors from "config";
+import { __ } from "@/components/LanguageComponents/TranslateComponent/systemTranslatre";
+import transformLanguageData from "@/components/LanguageComponents/TranslateComponent/transformLanguageData";
 
-const DATA = [
-  {
-    title: "Category",
-    id: 0,
-    data: ["Pizza", "Burger", "Risotto"],
-  },
-  {
-    title: "Filters",
-    id: 1,
-    data: ["French Fries", "Onion Rings", "Fried Shrimps"],
-  },
-  {
-    title: "Types",
-    id: 2,
-    data: ["Water", "Coke", "Beer"],
-  },
-  {
-    title: "KeyWords",
-    id: 3,
-    data: ["Cheese Cake", "Ice Cream"],
-  },
-];
-
-const CategoriesMenuComponent = () => {
+const CategoriesMenuComponent = ({langPage}) => {
   const theme = useAppSelector((state) => state.themeSlice.theme);
   const selectedTheme = theme === "dark" ? Colors.dark : Colors.light;
+
+  const categoryArray = useAppSelector((state) => state.categorySlice.categories);
+
+  const category = categoryArray.map((item)=> transformLanguageData("category", langPage, item))
+ 
+  
+  const filters = ["French Fries", "Onion Rings", "Fried Shrimps"];
+  const types = ["Water", "Coke", "Beer"];
+  const keyWords = ["Cheese Cake", "Ice Cream"];
+
+  const translatedCategory = __("Category")
+  const translatedFilters = __("Filters")
+  const translatedTypes = __("Types")
+  const translatedKeyWords = __("Key words")
+
+  const DATA = [
+    {
+      title: translatedCategory,
+      id: 0,
+      data: category,
+    },
+    {
+      title: translatedFilters,
+      id: 1,
+      data: filters,
+    },
+    {
+      title: translatedTypes,
+      id: 2,
+      data: types,
+    },
+    {
+      title: translatedKeyWords,
+      id: 3,
+      data: keyWords,
+    },
+  ];
+
+  
   return (
     <View
       style={[
@@ -61,8 +79,11 @@ const CategoriesMenuComponent = () => {
           keyExtractor={(item, index) => item + index}
           renderItem={({ item }) => (
             <View style={styles.item}>
-              <Text  numberOfLines={1}
-              ellipsizeMode="tail"style={[styles.title, { color: selectedTheme.text }]}>
+              <Text
+                numberOfLines={1}
+                ellipsizeMode="tail"
+                style={[styles.title, { color: selectedTheme.text }]}
+              >
                 {item}
               </Text>
             </View>
@@ -71,12 +92,19 @@ const CategoriesMenuComponent = () => {
             <View
               style={[
                 styles.headerContainer,
-                { borderColor: id === 0 ? selectedTheme.backgroundNav : selectedTheme.borderLine},
+                {
+                  borderColor:
+                    id === 0
+                      ? selectedTheme.backgroundNav
+                      : selectedTheme.borderLine,
+                },
               ]}
             >
-              <Text  numberOfLines={1}
-              ellipsizeMode="tail"
-              style={[styles.header, { color: selectedTheme.text }]}>
+              <Text
+                numberOfLines={1}
+                ellipsizeMode="tail"
+                style={[styles.header, { color: selectedTheme.text }]}
+              >
                 {title}
               </Text>
             </View>
@@ -95,9 +123,9 @@ const styles = StyleSheet.create({
     width: 180,
     borderRightWidth: 1,
     height: "100%",
-    zIndex:2
+    zIndex: 2,
   },
-  
+
   container: {
     flex: 1,
     marginHorizontal: 12,
@@ -105,23 +133,21 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingRight: 12,
   },
-  
+
   item: {
     marginBottom: 12,
-    marginLeft: 6
+    marginLeft: 6,
   },
   headerContainer: {
     borderTopWidth: 1,
     marginVertical: 12,
     padding: 6,
-    marginRight: 18
+    marginRight: 18,
   },
 
   header: {
     fontSize: 18,
     fontWeight: "600",
-    
-
   },
   title: {
     fontSize: 14,

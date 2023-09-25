@@ -17,7 +17,7 @@ import {
 } from "react-native";
 import Colors from "config";
 
-const Slider = ({ sliderName }) => {
+const Slider = ({ sliderName, langPage }) => {
   const theme = useAppSelector((state) => state.themeSlice.theme);
   const selectedTheme = theme === "dark" ? Colors.dark : Colors.light;
 
@@ -48,7 +48,7 @@ const Slider = ({ sliderName }) => {
             <Animated.View
               style={[styles.menuForCategories, { left: isOpen ? 0 : -180 }]}
             >
-              <CategoriesMenuComponent />
+              <CategoriesMenuComponent langPage={langPage} />
             </Animated.View>
             <TouchableOpacity
               onPress={isOpenSlider}

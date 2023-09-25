@@ -21,8 +21,9 @@ import ShopMiddleCardScreen from "@/components/ui/shopScreens/ShopMeddleCardScre
 import ShopSmallCardScreen from "@/components/ui/shopScreens/ShopSmallCardScreen";
 import CategoriesMenuComponent from "./CategoriesMenuComponent";
 import Slider from "@/components/common/Slider";
+import { fetchCategoriesData } from "@/store/reducers/CategorySlice";
 
-const BlogIndexComponent = ({ langPage }) => {
+const ShopIndexComponent = ({ langPage }) => {
   const flatListRef = useRef(null);
 
   const data = uniqueShopData(useAppSelector((state) => state.shopData));
@@ -43,6 +44,7 @@ const BlogIndexComponent = ({ langPage }) => {
   useEffect(() => {
     dispatch(fetchShopData());
     dispatch(sortTypeSliceAction(""));
+    dispatch(fetchCategoriesData())
   }, []);
 
   useEffect(() => {
@@ -64,7 +66,7 @@ const BlogIndexComponent = ({ langPage }) => {
 
   return size < 2 ? (
     <>
-      <Slider sliderName="CategoriesMenu" />
+      <Slider sliderName="CategoriesMenu" langPage={langPage} />
       <FlatList
         ref={flatListRef}
         initialNumToRender={6}
@@ -96,7 +98,7 @@ const BlogIndexComponent = ({ langPage }) => {
   ) : (
     <>
       <HeaderSwithcer page="shop" />
-      <CategoriesMenuComponent />
+      <CategoriesMenuComponent langPage={langPage}/>
       <FlatList
         showsVerticalScrollIndicator={false}
         ref={flatListRef}
@@ -153,4 +155,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BlogIndexComponent;
+export default ShopIndexComponent;

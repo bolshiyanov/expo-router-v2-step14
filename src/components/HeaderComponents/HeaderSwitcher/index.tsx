@@ -32,7 +32,7 @@ const HeaderSwitcher = ({ page }) => {
 
   const sortitle = `${__("Sorting")}`;
   const filterTitle = `${__("Filtring")}`;
-
+  const shownMenu = !useWidth(768)
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -90,7 +90,7 @@ const HeaderSwitcher = ({ page }) => {
       <View style={styles.container}>
         <View style={styles.searchContainer}>
           <>
-            {page === "shop" && <HeaderButton
+            {page === "shop" && shownMenu && <HeaderButton
               active={shownComponent === "null"}
               onPress={isOpenSlider}
               iconName="bars"

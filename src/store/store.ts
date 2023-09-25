@@ -10,6 +10,7 @@ import langSlice from "./reducers/LangSlice";
 import sortTypeSlice from "./reducers/SortTypeSlice";
 import postsScrollToUpSlice from "./reducers/ScrollToUpSlice";
 import headerShownSlice from "./reducers/HeaderShownSlice";
+import categorySlice from "./reducers/CategorySlice";
 
 import shopData from "./reducers/ShopDataSlice";
 
@@ -25,7 +26,8 @@ const rootReducer = combineReducers({
   sortTypeSlice,
   headerShownSlice,
   postsScrollToUpSlice,
-  sliderSlice
+  sliderSlice,
+  categorySlice
 });
 
 export const setupStore = () => {
