@@ -10,7 +10,7 @@ import langSlice from "./reducers/LangSlice";
 import sortTypeSlice from "./reducers/SortTypeSlice";
 import postsScrollToUpSlice from "./reducers/ScrollToUpSlice";
 import headerShownSlice from "./reducers/HeaderShownSlice";
-import categorySlice from "./reducers/ScrollToUpSlice copy";
+import categorySlice  from "./reducers/CategorySlice";
 
 import shopData from "./reducers/ShopDataSlice";
 

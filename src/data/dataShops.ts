@@ -3,13 +3,13 @@
 export default [
   {
     id: "1",
-    categoryId: "1,4",
+    categoryId: "001, 004",
     offer: "",
     price: 1600,
-    nameEn: "Istanbul",
+    nameEn: "Istanbul1",
     nameDe: "*",
     nameFr: "*",
-    nameEs: "Estambul",
+    nameEs: "Estambul1",
     nameIt: "*",
     nameRu: "Стамбул1",
     path: "istanbul",
@@ -36,7 +36,7 @@ export default [
   },
   {
     id: "2",
-    categoryId: "1,2,5",
+    categoryId: "001, 002, 005",
     offer: "-30%",
     price: 999,
     nameEn: "Mexico City",
@@ -69,7 +69,7 @@ export default [
   },
   {
     id: "3",
-    categoryId: "6,7",
+    categoryId: "006, 007",
     offer: "-70%",
     price: 1150,
     nameEn: "Athens",
@@ -104,7 +104,7 @@ export default [
   },
   {
     id: "4",
-    categoryId: "2",
+    categoryId: "002",
     offer: "",
     price: 2600,
     nameEn: "Cairo",
@@ -139,7 +139,7 @@ export default [
   },
   {
     id: "5",
-    categoryId: "5,7",
+    categoryId: "005, 007",
     offer: "",
     price: 790,
     nameEn: "Rio de Janeiro",
@@ -174,7 +174,7 @@ export default [
   },
   {
     id: "6",
-    categoryId: "1,6",
+    categoryId: "001, 006",
     offer: "",
     price: 900,
     nameEn: "New York",
@@ -209,7 +209,7 @@ export default [
   },
   {
     id: "7",
-    categoryId: "3,4,5",
+    categoryId: "003, 004, 005",
     offer: "",
     price: 1430,
     nameEn: "Sydney",
@@ -244,7 +244,7 @@ export default [
   },
   {
     id: "8",
-    categoryId: "1",
+    categoryId: "001",
     offer: "-15%",
     price: 760,
     nameEn: "Rome",
@@ -277,7 +277,7 @@ export default [
   },
   {
     id: "9",
-    categoryId: "2",
+    categoryId: "002",
     offer: "-5%",
     price: 3200,
     nameEn: "Rome",
@@ -312,7 +312,7 @@ export default [
   },
   {
     id: "10",
-    categoryId: "3",
+    categoryId: "003",
     offer: "",
     price: 2400,
     nameEn: "London",
@@ -347,7 +347,7 @@ export default [
   },
   {
     id: "11",
-    categoryId: "4",
+    categoryId: "004",
     offer: "",
     price: 660,
     nameEn: "Paris",
@@ -382,7 +382,7 @@ export default [
   },
   {
     id: "12",
-    categoryId: "5",
+    categoryId: "005",
     offer: "",
     price: 1300,
     nameEn: "Madrid",
@@ -417,7 +417,7 @@ export default [
   },
   {
     id: "13",
-    categoryId: "6",
+    categoryId: "006",
     offer: "-10%",
     price: 1500,
     nameEn: "Shanghai",
@@ -452,7 +452,7 @@ export default [
   },
   {
     id: "14",
-    categoryId: "7",
+    categoryId: "007",
     offer: "-30%",
     price: 1300,
     nameEn: "Beijing",
@@ -487,7 +487,7 @@ export default [
   },
   {
     id: "15",
-    categoryId: "6",
+    categoryId: "006",
     offer: "-30%",
     price: 3800,
     nameEn: "Los Angeles",
@@ -522,7 +522,7 @@ export default [
   },
   {
     id: "16",
-    categoryId: "5",
+    categoryId: "005",
     offer: "",
     price: 650,
     nameEn: "Moscow",
@@ -557,7 +557,7 @@ export default [
   },
   {
     id: "17",
-    categoryId: "4",
+    categoryId: "004",
     offer: "",
     price: 1500,
     nameEn: "Mumbai",
@@ -592,7 +592,7 @@ export default [
   },
   {
     id: "18",
-    categoryId: "3",
+    categoryId: "003",
     offer: "",
     price: 4100,
     nameEn: "Buenos Aires",
@@ -627,7 +627,7 @@ export default [
   },
   {
     id: "19",
-    categoryId: "2",
+    categoryId: "002",
     offer: "-70%",
     price: 800,
     nameEn: "Bangkok",
@@ -662,7 +662,7 @@ export default [
   },
   {
     id: "20",
-    categoryId: "1",
+    categoryId: "001",
     offer: "",
     price: 620,
     nameEn: "Dubai",
@@ -697,7 +697,7 @@ export default [
   },
   {
     id: "21",
-    categoryId: "2",
+    categoryId: "002",
     offer: "",
     price: 450,
     nameEn: "Amsterdam",
@@ -732,7 +732,7 @@ export default [
   },
   {
     id: "22",
-    categoryId: "3",
+    categoryId: "003",
     offer: "-60%",
     price: 1400,
     nameEn: "Toronto",
@@ -767,7 +767,7 @@ export default [
   },
   {
     id: "23",
-    categoryId: "4",
+    categoryId: "004",
     offer: "",
     price: 1600,
     nameEn: "San Francisco",
@@ -802,7 +802,7 @@ export default [
   },
   {
     id: "24",
-    categoryId: "5",
+    categoryId: "005",
     offer: "",
     price: 2500,
     nameEn: "Singapore",
@@ -835,7 +835,7 @@ export default [
   },
   {
     id: "25",
-    categoryId: "6",
+    categoryId: "006",
     offer: "",
     price: 1340,
     nameEn: "Hong Kong",
@@ -870,7 +870,7 @@ export default [
   },
   {
     id: "26",
-    categoryId: "7",
+    categoryId: "007",
     offer: "-30%",
     price: 1800,
     nameEn: "Kuala Lumpur",
@@ -905,7 +905,7 @@ export default [
   },
   {
     id: "27",
-    categoryId: "6",
+    categoryId: "006",
     offer: "-30%",
     price: 3120,
     nameEn: "Chicago",
@@ -940,7 +940,7 @@ export default [
   },
   {
     id: "28",
-    categoryId: "5",
+    categoryId: "005",
     offer: "-30%",
     price: 1560,
     nameEn: "São Paulo",
@@ -973,7 +973,7 @@ export default [
   },
   {
     id: "29",
-    categoryId: "4",
+    categoryId: "004",
     offer: "",
     price: 1200,
     nameEn: "New Delhi",
@@ -1008,7 +1008,7 @@ export default [
   },
   {
     id: "30",
-    categoryId: "3",
+    categoryId: "003",
     offer: "-55%",
     price: 320,
     nameEn: "Jakarta",
@@ -1043,7 +1043,7 @@ export default [
   },
   {
     id: "31",
-    categoryId: "2",
+    categoryId: "002",
     offer: "",
     price: 400,
     nameEn: "Lima",
@@ -1078,7 +1078,7 @@ export default [
   },
   {
     id: "32",
-    categoryId: "1",
+    categoryId: "001",
     offer: "",
     price: 2800,
     nameEn: "Riyadh",
@@ -1111,7 +1111,7 @@ export default [
   },
   {
     id: "33",
-    categoryId: "2",
+    categoryId: "002",
     offer: "",
     price: 670,
     nameEn: "Stockholm",
@@ -1146,7 +1146,7 @@ export default [
   },
   {
     id: "34",
-    categoryId: "3",
+    categoryId: "003",
     offer: "-90%",
     price: 555,
     nameEn: "Vienna",
@@ -1181,7 +1181,7 @@ export default [
   },
   {
     id: "35",
-    categoryId: "4",
+    categoryId: "004",
     offer: "-10%",
     price: 890,
     nameEn: "Prague",
@@ -1216,7 +1216,7 @@ export default [
   },
   {
     id: "36",
-    categoryId: "5",
+    categoryId: "005",
     offer: "",
     price: 1400,
     nameEn: "Warsaw",
@@ -1251,7 +1251,7 @@ export default [
   },
   {
     id: "37",
-    categoryId: "6",
+    categoryId: "006",
     offer: "",
     price: 200,
     nameEn: "Budapest",
@@ -1286,7 +1286,7 @@ export default [
   },
   {
     id: "38",
-    categoryId: "7",
+    categoryId: "007",
     offer: "-20%",
     price: 590,
     nameEn: "Copenhagen",
@@ -1319,7 +1319,7 @@ export default [
   },
   {
     id: "39",
-    categoryId: "6",
+    categoryId: "006",
     offer: "-70%",
     price: 3300,
     nameEn: "Dublin",
@@ -1352,7 +1352,7 @@ export default [
   },
   {
     id: "40",
-    categoryId: "4",
+    categoryId: "004",
     offer: "",
     price: 1900,
     nameEn: "Oslo",
@@ -1387,7 +1387,7 @@ export default [
   },
   {
     id: "41",
-    categoryId: "3",
+    categoryId: "003",
     offer: "",
     price: 1560,
     nameEn: "Helsinki",
@@ -1422,7 +1422,7 @@ export default [
   },
   {
     id: "42",
-    categoryId: "2",
+    categoryId: "002",
     offer: "",
     price: 500,
     nameEn: "Zurich",
@@ -1457,7 +1457,7 @@ export default [
   },
   {
     id: "43",
-    categoryId: "1",
+    categoryId: "001",
     offer: "-5%",
     price: 800,
     nameEn: "Geneva",
@@ -1492,7 +1492,7 @@ export default [
   },
   {
     id: "44",
-    categoryId: "2",
+    categoryId: "002",
     offer: "",
     price: 300,
     nameEn: "Vancouver",
@@ -1527,7 +1527,7 @@ export default [
   },
   {
     id: "45",
-    categoryId: "3",
+    categoryId: "003",
     offer: "",
     price: 3500,
     nameEn: "Montreal",
@@ -1562,7 +1562,7 @@ export default [
   },
   {
     id: "46",
-    categoryId: "5",
+    categoryId: "005",
     offer: "-20%",
     price: 2900,
     nameEn: "Barcelona",
@@ -1597,7 +1597,7 @@ export default [
   },
   {
     id: "47",
-    categoryId: "6",
+    categoryId: "006",
     offer: "",
     price: 760,
     nameEn: "Lisbon",
@@ -1633,7 +1633,7 @@ export default [
 
   {
     id: "48",
-    categoryId: "7",
+    categoryId: "007",
     offer: "",
     price: 1000,
     nameEn: "Kiev",

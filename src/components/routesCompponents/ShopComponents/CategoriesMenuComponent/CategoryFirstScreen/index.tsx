@@ -1,19 +1,24 @@
 import { StyleSheet, Image, View, Text } from "react-native";
 import React from "react";
-import { useAppSelector } from "@/components/utils/hooks/redux";
+import { useAppSelector, useAppDispatch } from "@/components/utils/hooks/redux";
+
 
 import Colors from "config";
 
 const CategoryFirstScreen = ({ smallText }) => {
   const theme = useAppSelector((state) => state.themeSlice.theme);
   const selectedTheme = theme === "dark" ? Colors.dark : Colors.light;
+  const shopData = useAppSelector((state)=> state.shopData)
 
   const categoryArray = useAppSelector(
     (state) => state.categorySlice.categories
   );
+  
   const currentId = useAppSelector(
     (state) => state.categorySlice.checkedIdCategory
   );
+
+
   const currentName = useAppSelector(
     (state) => state.categorySlice.checkedNameCategory
   );
@@ -22,10 +27,11 @@ const CategoryFirstScreen = ({ smallText }) => {
     (item) => item.categoryId === currentId
   );
 
-  if (currentId !== "") {
+
+  if (currentId !== "null" && currentId !== "") {
     if (firstScreen.image) {
       return (
-        <View style={{ marginBottom: 100 }}>
+        <View >
           <Image
             style={styles.originalImage}
             source={{ uri: firstScreen.image }}

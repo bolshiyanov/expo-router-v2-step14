@@ -35,10 +35,15 @@ export const categorySlice = createSlice({
     fetchCategoriesData: (state) => {
       state.categories.push(...dataCategoryShops);
     },
+    fetchRestartData: (state) => {
+      state.categories.push(...dataCategoryShops);
+      state.checkedIdCategory = "null"
+      state.checkedNameCategory = ""
+    },
   },
 });
 
-export const { categoryIdCheckedAction, categoryNameCheckedAction, fetchCategoriesData } =
+export const { categoryIdCheckedAction, categoryNameCheckedAction, fetchCategoriesData, fetchRestartData } =
   categorySlice.actions;
 
 export default categorySlice.reducer;

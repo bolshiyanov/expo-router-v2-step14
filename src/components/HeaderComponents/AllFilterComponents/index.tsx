@@ -15,8 +15,6 @@ const AllFilterComponent = ({ page }) => {
   const shopData = useAppSelector((state) => state.shopData);
 
   const dataLike = useAppSelector((state) => state.likeSlice);
-  console.log(' page', page)
-  console.log('dataLike ', dataLike)
   const scrollToUpp = useAppSelector(
     (state) => state.postsScrollToUpSlice.postsScrollToUp
   );

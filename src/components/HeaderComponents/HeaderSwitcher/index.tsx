@@ -6,6 +6,11 @@ import { useAppDispatch, useAppSelector } from "@/components/utils/hooks/redux";
 import { fetchSearchPostData } from "@/store/reducers/PostsSearchSlice";
 import { fetchSearchShopData } from "@/store/reducers/ShopsSearchSlice";
 import { sortTypeSliceAction } from "@/store/reducers/SortTypeSlice";
+import {
+  categoryIdCheckedAction,
+  fetchCategoriesData,
+  fetchRestartData,
+} from "@/store/reducers/CategorySlice";
 import { headerShownAction } from "@/store/reducers/HeaderShownSlice";
 import HeaderButton from "./HeaderButton";
 import SearchInHeaderComponent from "./SearchInHeaderComponent";
@@ -32,7 +37,7 @@ const HeaderSwitcher = ({ page }) => {
 
   const sortitle = `${__("Sorting")}`;
   const filterTitle = `${__("Filtring")}`;
-  const shownMenu = !useWidth(768)
+  const shownMenu = !useWidth(768);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -40,6 +45,7 @@ const HeaderSwitcher = ({ page }) => {
     dispatch(fetchSearchPostData());
     dispatch(fetchSearchShopData());
     dispatch(sortTypeSliceAction(""));
+    
   }, [selectedComponent]);
 
   const handleComponentChange = (component) => {
@@ -90,11 +96,13 @@ const HeaderSwitcher = ({ page }) => {
       <View style={styles.container}>
         <View style={styles.searchContainer}>
           <>
-            {page === "shop" && shownMenu && <HeaderButton
-              active={shownComponent === "null"}
-              onPress={isOpenSlider}
-              iconName="bars"
-            />}
+            {page === "shop" && shownMenu && (
+              <HeaderButton
+                active={shownComponent === "null"}
+                onPress={isOpenSlider}
+                iconName="bars"
+              />
+            )}
             {componentToRender}
           </>
         </View>

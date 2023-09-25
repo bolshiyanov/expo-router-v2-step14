@@ -8,6 +8,7 @@ import { sortTypeSliceAction } from "@/store/reducers/SortTypeSlice";
 import { __ } from "@/components/LanguageComponents/TranslateComponent/systemTranslatre";
 import Colors from "config";
 import { useWidth } from "@/components/utils/useWidth";
+import HeaderButton from "../HeaderSwitcher/HeaderButton";
 
 const SortingComponent = ({ page }) => {
   const postsData = useAppSelector((state) => state.postsData);
@@ -39,22 +40,28 @@ const SortingComponent = ({ page }) => {
   const messageInUpOfSorting = `${
     page === "blog" ? __("Published") : __("ItemsAddDate")
   }`;
-  const messageInMiddleOfSorting = `${page === "blog" ? __("Reads") : __("TotalAddToCart")}`;
-  const messageInBottonOfSorting = `${page === "blog" ? __("Likes") : __("Likes")}`;
+  const messageInMiddleOfSorting = `${
+    page === "blog" ? __("Reads") : __("TotalAddToCart")
+  }`;
+  const messageInBottonOfSorting = `${
+    page === "blog" ? __("Likes") : __("Likes")
+  }`;
 
   const handleSort = (option) => {
-    
-    const withOutZeroPublishedData = page === "blog"
-  ? postsData.filter((item) => item.dateCreate !== 0)
-  : shopData.filter((item) => item.dateCreate !== 0);
-  
-  const withOutZeroReadData = page === "blog"
-  ? postsData.filter( (item) => item.totalReads !== 0 )
-  : shopData.filter( (item) => item.totalReads !== 0 )
+    const withOutZeroPublishedData =
+      page === "blog"
+        ? postsData.filter((item) => item.dateCreate !== 0)
+        : shopData.filter((item) => item.dateCreate !== 0);
 
-    const withOutZeroLikeData = page === "blog"
-    ? postsData.filter((item) => item.like !== 0)
-    : shopData.filter((item) => item.like !== 0)
+    const withOutZeroReadData =
+      page === "blog"
+        ? postsData.filter((item) => item.totalReads !== 0)
+        : shopData.filter((item) => item.totalReads !== 0);
+
+    const withOutZeroLikeData =
+      page === "blog"
+        ? postsData.filter((item) => item.like !== 0)
+        : shopData.filter((item) => item.like !== 0);
 
     let sortedData = [];
     switch (option) {
@@ -99,7 +106,10 @@ const SortingComponent = ({ page }) => {
   };
   return (
     <View
-      style={[styles.container, { marginLeft: page === "shop" && useWidth(768) ? 180 : 0 }]}
+      style={[
+        styles.container,
+        { marginLeft: page === "shop" && useWidth(768) ? 180 : 0 },
+      ]}
     >
       <View style={styles.sortingsContainer}>
         {/* firstSorting */}
@@ -112,56 +122,16 @@ const SortingComponent = ({ page }) => {
             {messageInUpOfSorting}
           </Text>
           <View style={styles.iconsContainer}>
-            <View style={[styles.iconContainer]}>
-              <Pressable onPress={() => handleSortingChange("publishDateNew")}>
-                {({ pressed, hovered }) => (
-                  <TabBarIcon
-                    color={
-                      sortingOption === "publishDateNew"
-                        ? selectedTheme.borderBottomLine
-                        : selectedTheme.iconColors
-                    }
-                    style={{
-                      marginHorizontal: 6,
-                      marginTop: 5,
-                      ...(Platform.OS === "web" && {
-                        transform: hovered ? [{ scale: 1.1 }] : [{ scale: 1 }],
-                      }),
-                      ...(pressed && {
-                        transform: [{ scale: 0.9 }],
-                        opacity: 0.8,
-                      }),
-                    }}
-                    name="arrow-down-wide-short-solid"
-                  />
-                )}
-              </Pressable>
-            </View>
-            <View style={[styles.iconContainer]}>
-              <Pressable onPress={() => handleSortingChange("publishDateOld")}>
-                {({ pressed, hovered }) => (
-                  <TabBarIcon
-                    color={
-                      sortingOption === "publishDateOld"
-                        ? selectedTheme.borderBottomLine
-                        : selectedTheme.iconColors
-                    }
-                    style={{
-                      marginHorizontal: 6,
-                      marginTop: 5,
-                      ...(Platform.OS === "web" && {
-                        transform: hovered ? [{ scale: 1.1 }] : [{ scale: 1 }],
-                      }),
-                      ...(pressed && {
-                        transform: [{ scale: 0.9 }],
-                        opacity: 0.8,
-                      }),
-                    }}
-                    name="arrow-up-short-wide-solid"
-                  />
-                )}
-              </Pressable>
-            </View>
+            <HeaderButton
+              active={sortingOption === "publishDateNew"}
+              onPress={() => handleSortingChange("publishDateNew")}
+              iconName="arrow-down-wide-short-solid"
+            />
+            <HeaderButton
+              active={sortingOption === "publishDateOld"}
+              onPress={() => handleSortingChange("publishDateOld")}
+              iconName="arrow-up-short-wide-solid"
+            />
           </View>
         </View>
 
@@ -175,58 +145,16 @@ const SortingComponent = ({ page }) => {
             {messageInMiddleOfSorting}
           </Text>
           <View style={styles.iconsContainer}>
-            <View style={[styles.iconContainer]}>
-              <Pressable onPress={() => handleSortingChange("totalReadsLot")}>
-                {({ pressed, hovered }) => (
-                  <TabBarIcon
-                    color={
-                      sortingOption === "totalReadsLot"
-                        ? selectedTheme.borderBottomLine
-                        : selectedTheme.iconColors
-                    }
-                    style={{
-                      marginHorizontal: 6,
-                      marginTop: 5,
-                      ...(Platform.OS === "web" && {
-                        transform: hovered ? [{ scale: 1.1 }] : [{ scale: 1 }],
-                      }),
-                      ...(pressed && {
-                        transform: [{ scale: 0.9 }],
-                        opacity: 0.8,
-                      }),
-                    }}
-                    name="arrow-down-wide-short-solid"
-                  />
-                )}
-              </Pressable>
-            </View>
-            <View style={[styles.iconContainer]}>
-              <Pressable
-                onPress={() => handleSortingChange("totalReadsLittle")}
-              >
-                {({ pressed, hovered }) => (
-                  <TabBarIcon
-                    color={
-                      sortingOption === "totalReadsLittle"
-                        ? selectedTheme.borderBottomLine
-                        : selectedTheme.iconColors
-                    }
-                    style={{
-                      marginHorizontal: 6,
-                      marginTop: 5,
-                      ...(Platform.OS === "web" && {
-                        transform: hovered ? [{ scale: 1.1 }] : [{ scale: 1 }],
-                      }),
-                      ...(pressed && {
-                        transform: [{ scale: 0.9 }],
-                        opacity: 0.8,
-                      }),
-                    }}
-                    name="arrow-up-short-wide-solid"
-                  />
-                )}
-              </Pressable>
-            </View>
+            <HeaderButton
+              active={sortingOption === "totalReadsLot"}
+              onPress={() => handleSortingChange("totalReadsLot")}
+              iconName="arrow-down-wide-short-solid"
+            />
+            <HeaderButton
+              active={sortingOption === "totalReadsLittle"}
+              onPress={() => handleSortingChange("totalReadsLittle")}
+              iconName="arrow-up-short-wide-solid"
+            />
           </View>
         </View>
 
@@ -240,56 +168,16 @@ const SortingComponent = ({ page }) => {
             {messageInBottonOfSorting}
           </Text>
           <View style={styles.iconsContainer}>
-            <View style={[styles.iconContainer]}>
-              <Pressable onPress={() => handleSortingChange("likesLot")}>
-                {({ pressed, hovered }) => (
-                  <TabBarIcon
-                    color={
-                      sortingOption === "likesLot"
-                        ? selectedTheme.borderBottomLine
-                        : selectedTheme.iconColors
-                    }
-                    style={{
-                      marginHorizontal: 6,
-                      marginTop: 5,
-                      ...(Platform.OS === "web" && {
-                        transform: hovered ? [{ scale: 1.1 }] : [{ scale: 1 }],
-                      }),
-                      ...(pressed && {
-                        transform: [{ scale: 0.9 }],
-                        opacity: 0.8,
-                      }),
-                    }}
-                    name="arrow-down-wide-short-solid"
-                  />
-                )}
-              </Pressable>
-            </View>
-            <View style={[styles.iconContainer]}>
-              <Pressable onPress={() => handleSortingChange("likesLittle")}>
-                {({ pressed, hovered }) => (
-                  <TabBarIcon
-                    color={
-                      sortingOption === "likesLittle"
-                        ? selectedTheme.borderBottomLine
-                        : selectedTheme.iconColors
-                    }
-                    style={{
-                      marginHorizontal: 6,
-                      marginTop: 5,
-                      ...(Platform.OS === "web" && {
-                        transform: hovered ? [{ scale: 1.1 }] : [{ scale: 1 }],
-                      }),
-                      ...(pressed && {
-                        transform: [{ scale: 0.9 }],
-                        opacity: 0.8,
-                      }),
-                    }}
-                    name="arrow-up-short-wide-solid"
-                  />
-                )}
-              </Pressable>
-            </View>
+            <HeaderButton
+              active={sortingOption === "likesLot"}
+              onPress={() => handleSortingChange("likesLot")}
+              iconName="arrow-down-wide-short-solid"
+            />
+            <HeaderButton
+              active={sortingOption === "likesLittle"}
+              onPress={() => handleSortingChange("likesLittle")}
+              iconName="arrow-up-short-wide-solid"
+            />
           </View>
         </View>
       </View>

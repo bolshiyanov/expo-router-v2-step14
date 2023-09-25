@@ -12,12 +12,20 @@ export const shopDataSlice = createSlice({
     addShopData: (state, action: PayloadAction<DataShopTypeInterface[]>) => {
       state.push(...action.payload);
     },
+    replaceShopData: (
+      state,
+      action: PayloadAction<DataShopTypeInterface[]>
+    ) => {
+      const newState = [];
+      newState.push(...action.payload); 
+      return newState;
+    },
     fetchShopData: (state) => {
       state.push(...data);
     },
   },
 });
 
-export const { addShopData, fetchShopData } = shopDataSlice.actions;
+export const { addShopData, fetchShopData, replaceShopData } = shopDataSlice.actions;
 
 export default shopDataSlice.reducer;

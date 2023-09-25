@@ -1,16 +1,20 @@
 import React from "react";
 import { Platform, Pressable, View, StyleSheet } from "react-native";
 import { TabBarIcon } from "@/components/navigatorComponents/tab-bar-icon";
-import { useAppSelector } from "@/components/utils/hooks/redux";
+import { useAppSelector, useAppDispatch } from "@/components/utils/hooks/redux";
 import Colors from "config";
+import { fetchRestartData } from "@/store/reducers/CategorySlice";
 
 const HeaderButton = ({ active, onPress, iconName }) => {
   const theme = useAppSelector((state) => state.themeSlice.theme);
   const selectedTheme = theme === "dark" ? Colors.dark : Colors.light;
 
+const dispatch = useAppDispatch()
+
   const handlePress = () => {
     if (onPress) {
       onPress();
+      dispatch(fetchRestartData());
     }
   };
 

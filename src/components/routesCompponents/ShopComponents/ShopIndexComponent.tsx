@@ -21,14 +21,13 @@ import ShopMiddleCardScreen from "@/components/ui/shopScreens/ShopMeddleCardScre
 import ShopSmallCardScreen from "@/components/ui/shopScreens/ShopSmallCardScreen";
 import CategoriesMenuComponent from "./CategoriesMenuComponent";
 import Slider from "@/components/common/Slider";
-import { fetchCategoriesData } from "@/store/reducers/ScrollToUpSlice copy";
+import { fetchCategoriesData } from "@/store/reducers/CategorySlice";
 import CategoryFirstScreen from "./CategoriesMenuComponent/CategoryFirstScreen";
 
 const ShopIndexComponent = ({ langPage }) => {
   const flatListRef = useRef(null);
 
   const data = uniqueShopData(useAppSelector((state) => state.shopData));
-
   const searchedData = uniqueShopData(
     useAppSelector((state) => state.shopSearch)
   );
@@ -45,7 +44,7 @@ const ShopIndexComponent = ({ langPage }) => {
   useEffect(() => {
     dispatch(fetchShopData());
     dispatch(sortTypeSliceAction(""));
-    dispatch(fetchCategoriesData())
+    dispatch(fetchCategoriesData()); 
   }, []);
 
   useEffect(() => {
@@ -91,6 +90,7 @@ const ShopIndexComponent = ({ langPage }) => {
           <>
             <HeaderSwithcer page="shop" />
             <CategoryFirstScreen smallText={true}/>
+            <View style={{ marginBottom: 80 }}></View>
           </>
         }
         ListFooterComponent={FooterComponent}
@@ -119,7 +119,11 @@ const ShopIndexComponent = ({ langPage }) => {
           styles.container,
           { backgroundColor: selectedTheme.background },
         ]}
-        ListHeaderComponent={<CategoryFirstScreen smallText={true}/>}
+        ListHeaderComponent={
+        <>
+        <CategoryFirstScreen smallText={true}/>
+        <View style={{ marginBottom: 100 }}></View>
+        </>}
       />
     </>
   );
