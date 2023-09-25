@@ -21,7 +21,8 @@ import ShopMiddleCardScreen from "@/components/ui/shopScreens/ShopMeddleCardScre
 import ShopSmallCardScreen from "@/components/ui/shopScreens/ShopSmallCardScreen";
 import CategoriesMenuComponent from "./CategoriesMenuComponent";
 import Slider from "@/components/common/Slider";
-import { fetchCategoriesData } from "@/store/reducers/CategorySlice";
+import { fetchCategoriesData } from "@/store/reducers/ScrollToUpSlice copy";
+import CategoryFirstScreen from "./CategoriesMenuComponent/CategoryFirstScreen";
 
 const ShopIndexComponent = ({ langPage }) => {
   const flatListRef = useRef(null);
@@ -89,7 +90,7 @@ const ShopIndexComponent = ({ langPage }) => {
         ListHeaderComponent={
           <>
             <HeaderSwithcer page="shop" />
-            <View style={{ marginBottom: 80 }}></View>
+            <CategoryFirstScreen smallText={true}/>
           </>
         }
         ListFooterComponent={FooterComponent}
@@ -118,7 +119,7 @@ const ShopIndexComponent = ({ langPage }) => {
           styles.container,
           { backgroundColor: selectedTheme.background },
         ]}
-        ListHeaderComponent={<View style={{ marginBottom: 100 }}></View>}
+        ListHeaderComponent={<CategoryFirstScreen smallText={true}/>}
       />
     </>
   );

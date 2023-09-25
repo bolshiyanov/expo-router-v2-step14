@@ -30,8 +30,8 @@ export const Colors = {
     tabIconSelected: tintColorLight,
     iconColors: "rgba(0, 0, 0, 1)",
     transporentTop: "rgba(0, 0, 0, 0)",
-    transporentBottom: "rgba(0, 0, 0, 0.8)",
     transporentButton: "rgba(255, 255, 255, 0.8)",
+    transporentBackGround: "rgba(255, 255, 255, 0.5)",
 
     borderBottomLine: "#46B2BC",
   },
@@ -47,7 +47,7 @@ export const Colors = {
     transporentTop: "rgba(0, 0, 0, 0)",
     transporentBottom: "rgba(0, 0, 0, 0.8)",
     iconColors: "rgba(230, 230, 230, 1)",
-
+    transporentBackGround: "rgba(0, 0, 0, 0.5)",
     transporentButton: "rgba(0, 0, 0, 0.8)",
     borderBottomLine: "#e91e63",
   },

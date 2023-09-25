@@ -13,6 +13,7 @@ import Colors from "config";
 import { __ } from "@/components/LanguageComponents/TranslateComponent/systemTranslatre";
 import transformLanguageData from "@/components/LanguageComponents/TranslateComponent/transformLanguageData";
 import { categoryIdCheckedAction, categoryNameCheckedAction } from "@/store/reducers/CategorySlice";
+import uniqueData from "@/components/utils/uniqueData";
 
 const CategoriesMenuComponent = ({ langPage }) => {
   const theme = useAppSelector((state) => state.themeSlice.theme);
@@ -25,9 +26,9 @@ const CategoriesMenuComponent = ({ langPage }) => {
 
  
   
-  const category = categoryArray.map((item) =>
+  const category = uniqueData(categoryArray.map((item) =>
     transformLanguageData("category", langPage, item)
-  );
+  ));
 
   const dispatch = useAppDispatch();
 
