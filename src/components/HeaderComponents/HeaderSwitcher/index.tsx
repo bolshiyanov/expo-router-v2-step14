@@ -6,11 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/components/utils/hooks/redux";
 import { fetchSearchPostData } from "@/store/reducers/PostsSearchSlice";
 import { fetchSearchShopData } from "@/store/reducers/ShopsSearchSlice";
 import { sortTypeSliceAction } from "@/store/reducers/SortTypeSlice";
-import {
-  categoryIdCheckedAction,
-  fetchCategoriesData,
-  fetchRestartData,
-} from "@/store/reducers/CategorySlice";
+
 import { headerShownAction } from "@/store/reducers/HeaderShownSlice";
 import HeaderButton from "./HeaderButton";
 import SearchInHeaderComponent from "./SearchInHeaderComponent";

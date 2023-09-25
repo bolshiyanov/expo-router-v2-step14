@@ -45,7 +45,7 @@ const CategoryFirstScreen = ({ smallText }) => {
             <Text
               style={[
                 styles.title,
-                { color: selectedTheme.text, fontSize: smallText ? 48 : 64 },
+                { color: selectedTheme.text, fontSize: smallText ? 38 : 64 },
               ]}
               numberOfLines={1}
               ellipsizeMode="tail"
@@ -81,6 +81,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontWeight: "bold",
+    textTransform:'uppercase'
   },
 });
 
