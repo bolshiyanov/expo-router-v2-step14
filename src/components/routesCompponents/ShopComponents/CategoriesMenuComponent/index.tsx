@@ -7,28 +7,53 @@ import {
   SafeAreaView,
   SectionList,
   StatusBar,
+  TouchableOpacity,
 } from "react-native";
 import Colors from "config";
 import { __ } from "@/components/LanguageComponents/TranslateComponent/systemTranslatre";
 import transformLanguageData from "@/components/LanguageComponents/TranslateComponent/transformLanguageData";
+import { categoryIdCheckedAction, categoryNameCheckedAction } from "@/store/reducers/CategorySlice";
 
-const CategoriesMenuComponent = ({langPage}) => {
+const CategoriesMenuComponent = ({ langPage }) => {
   const theme = useAppSelector((state) => state.themeSlice.theme);
   const selectedTheme = theme === "dark" ? Colors.dark : Colors.light;
 
-  const categoryArray = useAppSelector((state) => state.categorySlice.categories);
+  const categoryArray = useAppSelector(
+    (state) => state.categorySlice.categories
+  );
+  const currentName = useAppSelector((state)=> state.categorySlice.checkedNameCategory)
 
-  const category = categoryArray.map((item)=> transformLanguageData("category", langPage, item))
  
   
+  const category = categoryArray.map((item) =>
+    transformLanguageData("category", langPage, item)
+  );
+
+  const dispatch = useAppDispatch();
+
+  const toggleCategory = (categoryArray, item) => {
+    
+    for (let i = 0; i < categoryArray.length; i++) {
+      const category = categoryArray[i];
+      for (const key in category) {
+        if (category[key] === item) {
+          const id = category.categoryId;
+          dispatch(categoryNameCheckedAction(item));
+          dispatch(categoryIdCheckedAction(id));
+          return null;
+        }
+      }
+    }
+  };
+
   const filters = ["French Fries", "Onion Rings", "Fried Shrimps"];
   const types = ["Water", "Coke", "Beer"];
   const keyWords = ["Cheese Cake", "Ice Cream"];
 
-  const translatedCategory = __("Category")
-  const translatedFilters = __("Filters")
-  const translatedTypes = __("Types")
-  const translatedKeyWords = __("Key words")
+  const translatedCategory = __("Category");
+  const translatedFilters = __("Filters");
+  const translatedTypes = __("Types");
+  const translatedKeyWords = __("Key words");
 
   const DATA = [
     {
@@ -36,24 +61,23 @@ const CategoriesMenuComponent = ({langPage}) => {
       id: 0,
       data: category,
     },
-    {
-      title: translatedFilters,
-      id: 1,
-      data: filters,
-    },
-    {
-      title: translatedTypes,
-      id: 2,
-      data: types,
-    },
-    {
-      title: translatedKeyWords,
-      id: 3,
-      data: keyWords,
-    },
+    // {
+    //   title: translatedFilters,
+    //   id: 1,
+    //   data: filters,
+    // },
+    // {
+    //   title: translatedTypes,
+    //   id: 2,
+    //   data: types,
+    // },
+    // {
+    //   title: translatedKeyWords,
+    //   id: 3,
+    //   data: keyWords,
+    // },
   ];
 
-  
   return (
     <View
       style={[
@@ -79,13 +103,19 @@ const CategoriesMenuComponent = ({langPage}) => {
           keyExtractor={(item, index) => item + index}
           renderItem={({ item }) => (
             <View style={styles.item}>
-              <Text
-                numberOfLines={1}
-                ellipsizeMode="tail"
-                style={[styles.title, { color: selectedTheme.text }]}
-              >
-                {item}
-              </Text>
+              <TouchableOpacity onPress={() => toggleCategory(categoryArray, item )}>
+                
+                <Text
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                  style={[styles.title, { color: 
+                    currentName === item 
+                    ? selectedTheme.borderBottomLine
+                  : selectedTheme.text }]}
+                >
+                  {item}
+                </Text>
+              </TouchableOpacity>
             </View>
           )}
           renderSectionHeader={({ section: { title, id } }) => (

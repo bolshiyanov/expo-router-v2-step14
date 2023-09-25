@@ -4,21 +4,33 @@ import dataCategoryShops from "@/data/dataCategoryShops";
 import { categotyShopInterface } from "@/constants/types/categotyShopType";
 
 interface CategoryInterface {
-  checkedCategory: string[];
+  checkedIdCategory: string;
+  checkedNameCategory: string;
   categories: categotyShopInterface[];
 }
 
 const initialState: CategoryInterface = {
-  checkedCategory: [],
+  checkedIdCategory: "",
+  checkedNameCategory: "",
   categories: [],
 };
 export const categorySlice = createSlice({
   name: "categories",
   initialState,
   reducers: {
-    categoryCheckedAction: (state, action) => {
-      const checkedCategoryArray = action.payload.split(",");
-      state.checkedCategory = checkedCategoryArray;
+    categoryIdCheckedAction: (state, action) => {
+      const checkedCategoryString = action.payload;
+      if (checkedCategoryString === state.checkedIdCategory) {
+        state.checkedIdCategory = ""
+      }
+       else state.checkedIdCategory = checkedCategoryString;
+    },
+    categoryNameCheckedAction: (state, action) => {
+      const checkedCategoryNameString = action.payload;
+      if (checkedCategoryNameString === state.checkedNameCategory) {
+        state.checkedNameCategory = ""
+      }
+       else state.checkedNameCategory = checkedCategoryNameString;
     },
     fetchCategoriesData: (state) => {
       state.categories.push(...dataCategoryShops);
@@ -26,7 +38,7 @@ export const categorySlice = createSlice({
   },
 });
 
-export const { categoryCheckedAction, fetchCategoriesData } =
+export const { categoryIdCheckedAction, categoryNameCheckedAction, fetchCategoriesData } =
   categorySlice.actions;
 
 export default categorySlice.reducer;
