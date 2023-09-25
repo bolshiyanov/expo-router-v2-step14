@@ -3,7 +3,7 @@ import React from 'react';
 
 export function transformDate(props: number) {
   
-  console.log('props ', props)
+  
   const unixTimestamp = props;
 
   if (typeof unixTimestamp !== 'number' || isNaN(unixTimestamp) || unixTimestamp < 100000) {

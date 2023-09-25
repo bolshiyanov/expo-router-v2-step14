@@ -25,7 +25,7 @@ const CategoryFirstScreen = ({ smallText }) => {
   if (currentId !== "") {
     if (firstScreen.image) {
       return (
-        <View style={{ marginTop: 100 }}>
+        <View style={{ marginBottom: 100 }}>
           <Image
             style={styles.originalImage}
             source={{ uri: firstScreen.image }}
