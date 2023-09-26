@@ -10,14 +10,14 @@
 </p>
 
 <p align="center">
-  <a aria-label="" href="https://github.com/bolshiyanov/expo-router-v2-step1"><b>Go back to 11 step</b></a>
- | <a aria-label="" href="https://expo-router-v2-step12.vercel.app/"><b>Look web site for 12 step</b></a>
+  <a aria-label="" href="https://github.com/bolshiyanov/expo-router-v2-step1"><b>Go back to 1 step</b></a>
+ | <a aria-label="" href="https://expo-router-v2-step14.vercel.app/"><b>Look web site for 12 step</b></a>
  |
-  <a aria-label="" href="https://github.com/bolshiyanov/expo-router-v2-step13">Next 13 step 📚</a>
+  <a aria-label="" href="https://github.com/bolshiyanov/expo-router-v2-step15">Next 15 step 📚</a>
 </p>
 
 
-<img align="center" alt="Multilenguage routing to static pages with Expo-Router v2" height="80%" src="./assets/images/Scr1.png">
+
 
 
 - [📚 About this step](#-documentation)
